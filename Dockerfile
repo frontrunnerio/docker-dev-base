@@ -55,7 +55,7 @@ RUN \
 		source ~/.nvm/nvm.sh && \
 		npm install -g \
 			bower \
-#			ember-cli@1.13.8 \
+			ember-cli@1.13.8 \
 			phantomjs \
 	'
 

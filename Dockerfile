@@ -40,7 +40,7 @@ RUN \
 		cd ~/.nvm && git checkout v0.29.0 && \
 		echo "# nvm" >> ~/.bashrc && \
 		echo "export NVM_DIR=\"~/.nvm\"" >> ~/.bashrc && \
-		echo "[ -s \"$NVM_DIR/nvm.sh\" ] && . \"$NVM_DIR/nvm.sh\"" >> ~/.bashrc \
+		echo "[ -s \"\$NVM_DIR/nvm.sh\" ] && . \"\$NVM_DIR/nvm.sh\"" >> ~/.bashrc \
 	'
 
 RUN \

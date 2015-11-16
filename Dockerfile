@@ -33,7 +33,7 @@ RUN \
 # Install nvm and rbenv in user space
 USER $DEV_USERNAME
 
-# install nvm and node
+# install nvm
 RUN \
 	/bin/bash -c '\
 		git clone https://github.com/creationix/nvm.git ~/.nvm && \
@@ -41,22 +41,6 @@ RUN \
 		echo "# nvm" >> ~/.bashrc && \
 		echo "export NVM_DIR=\"\$HOME/.nvm\"" >> ~/.bashrc && \
 		echo "[ -s \"\$NVM_DIR/nvm.sh\" ] && . \"\$NVM_DIR/nvm.sh\"" >> ~/.bashrc \
-	'
-
-RUN \
-	/bin/bash -c '\
-		source ~/.nvm/nvm.sh && \
-		nvm install 4.2.2 && \
-		nvm alias default 4.2.2 \
-	'
-
-RUN \
-	/bin/bash -c '\
-		source ~/.nvm/nvm.sh && \
-		npm install -g \
-			bower \
-			ember-cli@1.13.12 \
-			phantomjs \
 	'
 
 # Install rbenv
@@ -67,15 +51,6 @@ RUN \
 		echo "# rbenv" >> ~/.bashrc && \
 		echo "export PATH=\"\$HOME/.rbenv/bin:\$PATH\"" >> ~/.bashrc && \
 		echo "eval \"\$(rbenv init -)\"" >> ~/.bashrc \
-	'
-
-# Install Ruby
-RUN \
-	/bin/bash -c '\
-		export PATH="$HOME/.rbenv/bin:$PATH" && \
-		eval "$(rbenv init -)" && \
-		rbenv install 2.2.3 && \
-		rbenv global 2.2.3 \
 	'
 
 USER root
@@ -102,5 +77,4 @@ RUN \
 		wget \
 		zsh && \
 	apt-get clean
-
 

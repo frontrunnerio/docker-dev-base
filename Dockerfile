@@ -65,8 +65,8 @@ RUN \
 		git clone https://github.com/sstephenson/rbenv.git ~/.rbenv && \
 		git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build && \
 		echo "# rbenv" >> ~/.bashrc && \
-		echo "export PATH=\"$HOME/.rbenv/bin:$PATH\"" >> ~/.bashrc && \
-		echo "eval \"$(rbenv init -)\"" >> ~/.bashrc \
+		echo "export PATH=\"\$HOME/.rbenv/bin:\$PATH\"" >> ~/.bashrc && \
+		echo "eval \"\$(rbenv init -)\"" >> ~/.bashrc \
 	'
 
 # Install Ruby
@@ -75,9 +75,7 @@ RUN \
 		export PATH="$HOME/.rbenv/bin:$PATH" && \
 		eval "$(rbenv init -)" && \
 		rbenv install 2.2.3 && \
-		rbenv global 2.2.3 && \
-		echo "export PATH=\"\$HOME/.rbenv/bin:\$PATH\"" >> ~/.bashrc && \
-		echo "eval \"\$(rbenv init -)\"" >> ~/.bashrc \
+		rbenv global 2.2.3 \
 	'
 
 USER root

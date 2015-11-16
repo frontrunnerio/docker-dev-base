@@ -25,6 +25,7 @@ RUN \
 		cmake \
 		curl \
 		git \
+		libpq-dev \
 		libssl-dev \
 		libreadline-dev \
 		zlib1g-dev && \

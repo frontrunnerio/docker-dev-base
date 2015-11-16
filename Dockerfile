@@ -39,7 +39,7 @@ RUN \
 		git clone https://github.com/creationix/nvm.git ~/.nvm && \
 		cd ~/.nvm && git checkout v0.29.0 && \
 		echo "# nvm" >> ~/.bashrc && \
-		echo "export NVM_DIR=\"~/.nvm\"" >> ~/.bashrc && \
+		echo "export NVM_DIR=\"\$HOME/.nvm\"" >> ~/.bashrc && \
 		echo "[ -s \"\$NVM_DIR/nvm.sh\" ] && . \"\$NVM_DIR/nvm.sh\"" >> ~/.bashrc \
 	'
 
@@ -76,8 +76,8 @@ RUN \
 		eval "$(rbenv init -)" && \
 		rbenv install 2.2.3 && \
 		rbenv global 2.2.3 && \
-		echo "gem: --no-ri --no-rdoc" >> ~/.gemrc && \
-		gem install bundler \
+		echo "export PATH=\"\$HOME/.rbenv/bin:\$PATH\"" >> ~/.bashrc && \
+		echo "eval \"\$(rbenv init -)\"" >> ~/.bashrc \
 	'
 
 USER root
